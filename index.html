@@ -1,0 +1,176 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contrato de Novios 💍</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to right, #ffe0f0, #fcd2e2);
+      color: #4c0033;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .contract {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff4fa;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    ul {
+      text-align: left;
+      font-size: 1.1rem;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: float 2s linear forwards;
+      border-radius: 50% 50% 0 0;
+      z-index: 999;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(45deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(1.5) rotate(45deg);
+      }
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contrato de Novios 💖</h1>
+
+  <div class="contract">
+    <ul>
+      <li>✨ Prometo mandarte mmensajes y tiktoks  todos los días .</li>
+      <li>🎮 Prometo llevarte algo para comer todos los dias .</li>
+      <li>🍕 Prometo compartir la comida que tenga a mano (siempre).</li>
+      <li>💬 Prometo escucharte, incluso cuando hables de cosas raras.</li>
+      <li>🤗 Prometo no gorrearte ni hablar con algun otro hombre.</li>
+      <li>💌 Prometo hacerte acordar que te amo sin razón alguna.</li>
+      <li>😶‍🌫️ Prometo tocarte el miembro masculino siempre que lo quieras .</li>
+    </ul>
+
+    <p style="font-size: 1.2rem; margin-top: 20px;">
+      Yo, <strong>Mia Arias</strong>, acepto comprometerme con todo lo ya mencionado.
+    </p>
+
+    <div style="margin: 20px 0;">
+      <label style="font-size: 1.1rem;">
+        <input type="radio" name="confirmacion" checked> Sí, con todo mi corazoncito 💞
+      </label><br/>
+      <label style="font-size: 1.1rem;">
+        <input type="radio" name="confirmacion"> Sí (porque no hay otra opción jajaja) 😅
+      </label>
+    </div>
+
+    <div>
+      <label for="firma" style="font-size: 1.1rem;">Firma digital (tu nombre bonito acá):</label><br>
+      <input type="text" id="firma" placeholder="Mia Arias" style="margin-top: 8px; padding: 8px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; width: 60%;">
+    </div>
+
+    <div style="margin-top: 30px; text-align: left;">
+      <h3 style="color: #b30059;">📝 Cosas a tener en cuenta:</h3>
+      <ul style="font-size: 1rem; padding-left: 20px;">
+        <li>Este contrato no tiene vencimiento. Es para siempre 💘</li>
+        <li>En caso de discusión, siempre tiene la razon lorenzo .</li>
+        <li>Los abrazos curan bugs emocionales, usarlos sin límite.</li>
+        <li>Los besos son recargables. Pedir más si es necesario 💋</li>
+      </ul>
+    </div>
+
+    <button onclick="signContract()">Firmar con amor 💘</button>
+
+    <div class="signature" id="signatureText"></div>
+  </div>
+
+  <script>
+    function signContract() {
+      const nombre = document.getElementById("firma").value || "Anónima";
+      const msg = document.getElementById("signatureText");
+      msg.innerText = `Contrato firmado con amor por ${nombre} 📝💕`;
+      launchHearts();
+    }
+
+    function launchHearts() {
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.top = "80vh";
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 2000);
+        }, i * 100);
+      }
+    }
+  </script>
+</body>
+</html>
